@@ -35,29 +35,14 @@
       "cm": "viridis",
       "label": "[days]"
     },
-    "TOPAZ5_P1D_SICONC": {
-      "range": [0, 0.7],
-      "cm": "ice",
-      "label": "[fraction]"
-    },
-    "TOPAZ5_P1D_SITHICK": {
-      "range": [0, 4],
-      "cm": "ice",
-      "label": "[m]"
-    },
-    "TOPAZ5_P1D_VXO": {
-      "range": [-0.3, 0.3],
-      "cm": "delta",
+    "TOPAZ4_P1D_VXSI": {
+      "range": [0, 0.5],
+      "cm": "speed",
       "label": "[m/s]"
     },
-    "TOPAZ5_P1D_SISNTHICK": {
-      "range": [0, 0.7],
-      "cm": "ice",
-      "label": "[m]"
-    },
     "TOPAZ4_P1D_VXO": {
-      "range": [-0.3, 0.3],
-      "cm": "delta",
+      "range": [0, 2],
+      "cm": "speed",
       "label": "[m/s]"
     },
     "TOPAZ4_P1D_SISNTHICK": {

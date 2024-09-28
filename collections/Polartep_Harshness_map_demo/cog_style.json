@@ -1,16 +1,75 @@
 {
+  "variables": {
+    "filtermin": 0,
+    "filtermax": 16,
+    "vmin": 0,
+    "vmax": 16
+  },
   "color": [
     "case",
-    [">", ["band", 1], 0],
+    ["all",
+      [">", ["band", 1], 0],
+      ["between", ["band", 1], ["var", "filtermin"], ["var", "filtermax"]],
+    ],
     [
       "interpolate",
       ["linear"],
       ["band", 1],
-      0,
+      ["var", "vmin"],
       [0, 255, 0, 1],
-      15,
+      ["var", "vmax"],
       [255, 0, 0, 1]
     ],
     ["color", 0, 0, 0, 0]
-  ]
+  ],
+  "jsonform": {
+    "type": "object",
+    "title": "Visualisation",
+    "properties": {
+      "vminmax": {
+          "title": "Min/Max range",
+          "description": "Green is min, Red is max",
+          "type": "object",
+          "properties": {
+            "vmin": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 16,
+              "format": "range",
+              "default": 0
+            },
+            "vmax": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 16,
+              "format": "range",
+              "default": 16
+            }
+          },
+          "format": "minmax"
+        },
+        "filterminmax": {
+          "title": "Filter out values",
+          "description": "",
+          "type": "object",
+          "properties": {
+            "filtermin": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 16,
+              "format": "range",
+              "default": 0
+            },
+            "filtermax": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 16,
+              "format": "range",
+              "default": 16
+            }
+          },
+          "format": "minmax"
+        }
+    }
+  }
 }

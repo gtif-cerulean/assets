@@ -1380,8 +1380,7 @@
         "type_of_visualisation": {
           "title": "Type of Visualisation",
           "type": "string",
-          "enum": ["POLARIS", "Stage of Development", "Sea Ice Concentration", "AIRSS Ice Numeral Go/No Go"
-          ],
+          "enum": ["POLARIS", "Stage of Development", "Sea Ice Concentration", "AIRSS Ice Numeral Go/No Go"],
           "default": "POLARIS"
         }
       }

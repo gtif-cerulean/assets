@@ -122,6 +122,12 @@
         [
           "case",
           [
+            "==",
+            ["get","poly_type"],
+            "W"
+          ],
+          [150, 200, 255],
+          [
             ">",
             ["get","polaris_decayed_pc_ic_riv"],
             20.0
@@ -180,6 +186,12 @@
         ],
         [
             "case",
+            [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
             [
               ">",
               ["get","polaris_decayed_pc_ib_riv"],
@@ -240,6 +252,12 @@
         [
             "case",
             [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
+            [
               ">",
               ["get","polaris_decayed_pc_ia_super_riv"],
               20.0
@@ -298,6 +316,12 @@
         ],
         [
             "case",
+            [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
             [
               ">",
               ["get","polaris_decayed_pc_nis_riv"],
@@ -358,6 +382,12 @@
         [
             "case",
             [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
+            [
               ">",
               ["get","polaris_decayed_pc_1_riv"],
               20.0
@@ -416,6 +446,12 @@
         ],
         [
             "case",
+            [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
             [
               ">",
               ["get","polaris_decayed_pc_2_riv"],
@@ -476,6 +512,12 @@
         [
             "case",
             [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
+            [
               ">",
               ["get","polaris_decayed_pc_3_riv"],
               20.0
@@ -534,6 +576,12 @@
         ],
         [
             "case",
+            [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
             [
               ">",
               ["get","polaris_decayed_pc_4_riv"],
@@ -594,33 +642,39 @@
         [
             "case",
             [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
+            [
               ">",
               ["get","polaris_decayed_pc_5_riv"],
-              20.0
+              30.0
             ],
             [54,122,74,1],
             [
               ">=",
               ["get","polaris_decayed_pc_5_riv"],
-              10.0
+              20.0
             ],
             [62,150,85,1],
             [
               ">=",
               ["get","polaris_decayed_pc_5_riv"],
-              0.0
+              10.0
             ],
             [102,188,118,1],
             [
               ">=",
               ["get","polaris_decayed_pc_5_riv"],
-              -10.0
+              0.0
             ],
             [252,251,1,1],
             [
               ">=",
               ["get","polaris_decayed_pc_5_riv"],
-              -20.0
+              -10.0
             ],
             [227,108,9,1],
             [
@@ -629,7 +683,7 @@
               -20.0
             ],
             [188,1,6,1],
-            [0,0,0,1]
+            [255,0,0,1]
         ],
         [
             "all",
@@ -653,42 +707,48 @@
         [
             "case",
             [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
+            [
               ">",
               ["get","polaris_decayed_pc_6_riv"],
-              20.0
+              40.0
             ],
             [54,122,74,1],
             [
               ">=",
               ["get","polaris_decayed_pc_6_riv"],
-              10.0
+              30.0
             ],
             [62,150,85,1],
             [
               ">=",
               ["get","polaris_decayed_pc_6_riv"],
-              0.0
+              20.0
             ],
             [102,188,118,1],
             [
               ">=",
               ["get","polaris_decayed_pc_6_riv"],
-              -10.0
+              10.0
             ],
             [252,251,1,1],
             [
               ">=",
               ["get","polaris_decayed_pc_6_riv"],
-              -20.0
+              0.0
             ],
             [227,108,9,1],
             [
               "<",
               ["get","polaris_decayed_pc_6_riv"],
-              -20.0
+              0.0
             ],
             [188,1,6,1],
-            [0,0,0,1]
+            [255,0,0,1]
         ],
         [
             "all",
@@ -712,42 +772,48 @@
         [
             "case",
             [
+              "==",
+              ["get","poly_type"],
+              "W"
+            ],
+            [150, 200, 255],
+            [
               ">",
               ["get","polaris_decayed_pc_7_riv"],
-              20.0
+              50.0
             ],
             [54,122,74,1],
             [
               ">=",
               ["get","polaris_decayed_pc_7_riv"],
-              10.0
+              40.0
             ],
             [62,150,85,1],
             [
               ">=",
               ["get","polaris_decayed_pc_7_riv"],
-              0.0
+              30.0
             ],
             [102,188,118,1],
             [
               ">=",
               ["get","polaris_decayed_pc_7_riv"],
-              -10.0
+              20.0
             ],
             [252,251,1,1],
             [
               ">=",
               ["get","polaris_decayed_pc_7_riv"],
-              -20.0
+              10.0
             ],
             [227,108,9,1],
             [
               "<",
               ["get","polaris_decayed_pc_7_riv"],
-              -20.0
+              0.0
             ],
             [188,1,6,1],
-            [0,0,0,1]
+            [255,0,0,1]
         ],
         [
             "all",

@@ -6,7 +6,7 @@
         "type_of_visualisation": {
           "title": "Type of Visualisation",
           "type": "string",
-          "enum": ["POLARIS", "WMO Concentration", "AIRSS Ice Numeral Go/No Go"],
+          "enum": ["POLARIS", "WMO Concentration", "WMO Stage of Development", "AIRSS Ice Numeral Go/No Go"],
           "default": "POLARIS"
         },
         "ship_class": {
@@ -74,6 +74,56 @@
          [255, 255, 0, 1],
          "2/10 255 4/10",
          [255, 255, 0, 1],
+         "Unknown/Undetermined",
+         [255,255,255,1],
+         [255,255,255,1]
+      ],
+      [
+        "==",
+        [
+          "var",
+          "type_of_visualisation"
+        ],
+        "WMO Concentration"
+      ],
+      [
+        "match",
+        [
+          "get",
+          "wmo_stage_of_development"
+        ],
+         "Ice Free",
+         [0,100,255, 1],
+         "Brash Ice",
+         [0, 0, 0, 0],
+         "No stage of development",
+         [0, 0, 0, 0],
+         "New Ice",
+         [240,210,250, 1],
+         "Nilas Ice Rind (<10 cm)",
+         [255,100,255, 1],
+         "Young Ice (10 to 30 cm)",
+         [0,0,0,0],
+         "Grey Ice",
+         [135,60,215,1],
+         "Grey-White Ice",
+         [220, 80, 235, 1],
+         "First Year Ice (>30 cm) or Brash Ice",
+         [255,255, 0, 1],
+         "Thin First Year Ice (30 to 70 cm)",
+         [155, 210, 0, 1],
+         "Medium First Year Ice (70 to 120 cm)",
+         [0, 200, 20, 1],
+         "Thick First Year Ice (>120 cm)",
+         [0, 120, 0, 1],
+         "Old Ice",
+         [180, 100, 50, 1],
+         "Second-Year Ice",
+         [255, 120, 10, 1],
+         "Multi-Year Ice",
+         [200, 0, 0, 1],
+         "Bergy Water",
+         [255,255,255,1],
          "Unknown/Undetermined",
          [255,255,255,1],
          [255,255,255,1]

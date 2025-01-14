@@ -28,6 +28,11 @@
       "type_of_ice": "standard",
       "type_of_visualisation": "POLARIS"
     },
+    "tooltip": [
+        {"id": "wmo_concentration", "title": "WMO Concentration"},
+        {"id": "wmo_stage_of_development", "title": "Stage of development"},
+        {"id": "polaris_standard_pc_nis_rio", "title": "PC NIS"}
+    ],
     "fill-color": [
       "case",
       [

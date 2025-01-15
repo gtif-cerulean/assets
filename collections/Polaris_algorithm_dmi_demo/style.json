@@ -1,4 +1,46 @@
 {
+    "legend": [
+        {
+            "title": "Total concentration colour code standard",
+            "range": [
+              "#367a4a",
+              "#3e9655",
+              "#66bc76",
+              "#fcfb01",
+              "#e36c09",
+              "#bc0106",
+              "#fcfb01"
+            ],
+            "domain": [
+              "RIO > 20: Normal Operation",
+              ">= 10 RIO < 20: Normal Operation",
+              ">= 0 RIO < 10: Normal Operation",
+              ">= -10 RIO < 0: Operation subject to special consideration",
+              ">= -20 RIO < -10: Operation subject to special consideration",
+              "RIO < -20: Operation subject to special consideration",
+              "<= -10 RIO < 0: Elevated operational risk"
+            ],
+            "scaleType": "categorical",
+            "markType": "circle"
+        },
+        {
+            "title": "WMO Concentration",
+            "range": [
+                "#8cff9f",
+                "#ffff00",
+                "#ff7d07",
+                "#ff0000"
+            ],
+            "domain": [
+                "1 - 3",
+                "4 - 6",
+                "7 - 9",
+                "10"
+            ],
+            "scaleType": "categorical",
+            "markType": "circle"
+        }
+    ],
     "jsonform": {
       "type": "object",
       "title": "Data configuration",
@@ -45,12 +87,12 @@
       "ship_class": "nis",
       "type_of_ice": "standard",
       "type_of_visualisation": "polaris",
-      "combined_prop": "polaris_standard_nis_rio"
+      "combined_prop": "polaris_standard_pc_nis_rio"
     },
     "tooltip": [
         {"id": "wmo_concentration", "title": "WMO Concentration"},
         {"id": "wmo_stage_of_development", "title": "Stage of development"},
-        {"id": ["var", "combined_prop"], "title": "POLARIS value for selection"}
+        {"id": "{{combined_prop}}", "title": "POLARIS {{ship_class}} {{type_of_ice}}"}
     ],
     "fill-color": [
       "case",
@@ -68,34 +110,34 @@
           "get",
           "wmo_concentration"
         ],
-         "Ice Free",
-         [0,100,255, 1],
-         "Open Water (< 1/10 ice)",
-         [150, 200, 255, 1],
-         "Bergy Water",
-         [150, 200, 255, 1],
-         "1/10",
-         [0,255,0, 1],
-         "2/10",
-         [0,255,0, 1],
-         "3/10",
-         [0,255,0, 1],
-         "4/10",
-         [255, 255, 0, 1],
-         "5/10",
-         [255, 255, 0, 1],
-         "6/10",
-         [255, 255, 0, 1],
-         "7/10",
-         [255, 165, 0, 1],
-         "8/10",
-         [255, 165, 0, 1],
-         "9/10",
-         [255, 0, 0, 1],
-         "10/10",
-         [255, 0, 0, 1],
-         "9/10 to 10/10 ice, 9+/10",
-         [255, 0, 0, 1],
+        "Ice Free",
+        [0, 100, 255, 1],
+        "Open Water (< 1/10 ice)",
+        [150, 200, 255, 1],
+        "Bergy Water",
+        [150, 200, 255, 1],
+        "1/10",
+        [140, 255, 159, 1],
+        "2/10",
+        [140, 255, 159, 1],
+        "3/10",
+        [140, 255, 159, 1],
+        "4/10",
+        [255, 255, 0, 1],
+        "5/10",
+        [255, 255, 0, 1],
+        "6/10",
+        [255, 255, 0, 1],
+        "7/10",
+        [255, 125, 7, 1],
+        "8/10",
+        [255, 125, 7, 1],
+        "9/10",
+        [255, 0, 0, 1],
+        "10/10",
+        [255, 0, 0, 1],
+        "9/10 to 10/10 ice, 9+/10",
+        [255, 0, 0, 1],
          "Unknown/Undetermined",
          [255,255,255,1],
          [255,255,255,1]

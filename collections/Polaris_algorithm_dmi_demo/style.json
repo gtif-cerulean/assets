@@ -21,7 +21,8 @@
               "<= -10 RIO < 0: Elevated operational risk"
             ],
             "scaleType": "categorical",
-            "markType": "circle"
+            "markType": "circle",
+            "boundTo": {"key": "type_of_visualisation", "value": "polaris"}
         },
         {
             "title": "WMO Concentration",
@@ -38,7 +39,8 @@
                 "10"
             ],
             "scaleType": "categorical",
-            "markType": "circle"
+            "markType": "circle",
+            "boundTo": {"key": "type_of_visualisation", "value": "WMO Concentration"}
         }
     ],
     "jsonform": {

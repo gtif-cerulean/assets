@@ -12,13 +12,13 @@
               "#fcfb01"
             ],
             "domain": [
-              "RIO > 20: Normal Operation",
-              ">= 10 RIO < 20: Normal Operation",
-              ">= 0 RIO < 10: Normal Operation",
-              ">= -10 RIO < 0: Operation subject to special consideration",
-              ">= -20 RIO < -10: Operation subject to special consideration",
-              "RIO < -20: Operation subject to special consideration",
-              "<= -10 RIO < 0: Elevated operational risk"
+              "RIO > 20",
+              ">= 10 RIO < 20",
+              ">= 0 RIO < 10",
+              ">= -10 RIO < 0",
+              ">= -20 RIO < -10",
+              "RIO < -20",
+              "<= -10 RIO < 0"
             ],
             "scaleType": "categorical",
             "markType": "circle",
@@ -94,7 +94,7 @@
     "tooltip": [
         {"id": "wmo_concentration", "title": "WMO Concentration"},
         {"id": "wmo_stage_of_development", "title": "Stage of development"},
-        {"id": "{{combined_prop}}", "title": "POLARIS {{ship_class}} {{type_of_ice}}"}
+        {"id": "{{combined_prop}}", "title": "RIO ({{ship_class}} ice: {{type_of_ice}})"}
     ],
     "fill-color": [
       "case",

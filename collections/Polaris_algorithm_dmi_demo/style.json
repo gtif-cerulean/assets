@@ -94,7 +94,7 @@
     "tooltip": [
         {"id": "wmo_concentration", "title": "WMO Concentration"},
         {"id": "wmo_stage_of_development", "title": "Stage of development"},
-        {"id": "{{combined_prop}}", "title": "RIO ({{ship_class}} ice: {{type_of_ice}})"}
+        {"id": "{{combined_prop}}", "title": "Total concentration ({{ship_class}} ice: {{type_of_ice}})"}
     ],
     "fill-color": [
       "case",

@@ -21,6 +21,15 @@
             "type": "date",
             "format": "date",
             "default": "2024-03-20"
+        },
+        "depth": {
+            "type": "number",
+            "title": "Depth [m]",
+            "minimum": 0,
+            "maximum": -5500,
+            "steps": 100,
+            "default": 0,
+            "format": "range"
         }
     }
 }

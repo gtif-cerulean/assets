@@ -1,0 +1,47 @@
+{
+    "variables": {
+      "vmin": 0,
+      "vmax": 15
+    },
+    "color": [
+        "case",
+        [">", ["band", 1], 0],
+        ["interpolate",
+        ["linear"],
+        ["/", ["-", ["band", 1], ["var", "vmin"]], ["-", ["var", "vmax"], ["var", "vmin"]]],
+        0, [0, 0, 255, 1],
+        0.50, [100, 100, 100, 1],
+        1, [253, 0, 0, 1]
+        ],
+        [
+            "color", 0, 0, 0, 0
+        ]
+    ],
+    "jsonform": {
+      "type": "object",
+      "title": "Data configuration",
+      "properties": {
+        "vminmax": {
+          "title": "Harshness Index",
+          "type": "object",
+          "properties": {
+            "vmin": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 15,
+              "format": "range",
+              "default": 2
+            },
+            "vmax": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 15,
+              "format": "range",
+              "default": 10
+            }
+          },
+          "format": "minmax"
+        }
+      }
+    }
+  }

@@ -1,0 +1,78 @@
+{
+    "type": "object",
+    "properties": {
+        "bbox": {
+            "type": "array",
+            "title": "Select area (bbox) on map",
+            "options": {
+                "for": "eox-map#main",
+                "projection": "EPSG:4326"
+            },
+            "format": "bounding-box"
+        },
+        "date_start": {
+            "type": "string",
+            "title": "Select start year",
+            "enum": [
+                "2020",
+                "2021",
+                "2022"
+            ],
+            "default": "2020"
+        },
+        "date_end": {
+            "type": "string",
+            "title": "Select end year",
+            "enum": [
+                "2020",
+                "2021",
+                "2022"
+            ],
+            "default": "2021"
+        },
+        "wave_height": {
+            "type": "number",
+            "title": "Maximum acceptable wave height [m]",
+            "minimum": 0,
+            "maximum": 10,
+            "default": 3,
+            "format": "range"
+        },
+        "wave_height_weight": {
+            "type": "number",
+            "title": "Weight applied for wave height parameter",
+            "minimum": 0,
+            "maximum": 10,
+            "default": 2.5,
+            "step": 0.5,
+            "format": "range"
+        },
+        "sea_ice_concentration": {
+            "type": "number",
+            "title": "Maximum acceptable ice concentration [%]",
+            "minimum": 0,
+            "maximum": 100,
+            "step": 10,
+            "default": 50,
+            "format": "range"
+        },
+        "sea_ice_concentration_weight": {
+            "type": "number",
+            "title": "Weight applied for sea ice concentration parameter",
+            "minimum": 0,
+            "maximum": 10,
+            "step": 0.5,
+            "default": 6,
+            "format": "range"
+        },
+        "ice_berg_weight": {
+            "type": "number",
+            "title": "Weight applied for iceberg parameter",
+            "minimum": 0,
+            "maximum": 10,
+            "step": 0.5,
+            "default": 1.5,
+            "format": "range"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "width": "container",
+    "height": "250",
+    "autosize": "fit",
+    "resize": true,
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "name": "process_eox"
+    },
+    "transform": [{"flatten": ["HAPTO"], "as": ["data"]}],
+    "encoding": {"x": {"field": "data.datetime", "type": "temporal", "title": "date"}},
+    "layer": [
+      {
+        "mark": {"type": "area"},
+        "encoding": {
+          "y": {"field": "data.mean", "type": "quantitative"},
+          "y2": {"field": "data.max", "type": "quantitative"},
+          "fill": {"value": "#E1BE6A"},
+          "opacity": {"value": 0.7}
+        }
+      },
+      {
+        "mark": {"type": "line", "filled": false},
+        "encoding": {
+          "y": {
+            "aggregate": "mean",
+            "field": "data.mean",
+            "type": "quantitative",
+            "scale": {"zero": false},
+            "title": "value"
+          },
+          "color": {"value": "black"}
+        }
+      },
+      {
+        "mark": {"type": "area"},
+        "encoding": {
+          "y": {"field": "data.min", "type": "quantitative"},
+          "y2": {"field": "data.mean", "type": "quantitative"},
+          "fill": {"value": "#40B0A6"},
+          "opacity": {"value": 0.5}
+        }
+      },
+      {
+        "mark": "rule",
+        "encoding": {
+          "opacity": {
+            "condition": {"value": 0.3, "param": "hover", "empty": false},
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "data.datetime", "type": "temporal", "format": "%Y-%m-%d  %H:%M", "title": "date"},
+            {"field": "data.mean", "type": "quantitative", "format": ".3f", "title": "mean"},
+            {"field": "data.min", "type": "quantitative", "format": ".3f", "title": "minimum"},
+            {"field": "data.max", "type": "quantitative", "format": ".3f", "title": "maximum"}
+            
+          ]
+        },
+        "params": [
+          {
+            "name": "hover",
+            "select": {
+              "type": "point",
+              "fields": ["data.datetime"],
+              "nearest": true,
+              "on": "pointerover",
+              "clear": "pointerout"
+            }
+          }
+        ]
+      }
+    ],
+    "background": "transparent"
+  }

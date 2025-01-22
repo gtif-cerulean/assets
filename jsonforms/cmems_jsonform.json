@@ -29,7 +29,10 @@
             "maximum": 0,
             "steps": 100,
             "default": 0,
-            "format": "range"
+            "format": "range",
+            "options": {
+              "hidden": true
+            }
         }
     }
 }

@@ -9,10 +9,10 @@
         "rgba(217, 30, 30, 1)"
       ],
       "domainProperties": ["vmin", "vmax"]
-    },  
+    },
     "variables": {
-        "vmin": 80,
-        "vmax": 130
+        "vmin": 60,
+        "vmax": 100
       },
       "color": [
         "case",
@@ -43,14 +43,14 @@
                 "minimum": 0,
                 "maximum": 140,
                 "format": "range",
-                "default": 80
+                "default": 60
               },
               "vmax": {
                 "type": "number",
                 "minimum": 0,
                 "maximum": 140,
                 "format": "range",
-                "default": 130
+                "default": 100
               }
             },
             "format": "minmax"

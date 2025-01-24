@@ -1,137 +1,145 @@
 {
     "jsonform": {
-      "type": "object",
-      "title": "Data configuration",
-      "properties": {
-        "type_of_visualisation": {
-          "title": "Type of Visualisation",
-          "type": "string",
-          "enum": ["airss", "WMO Concentration", "WMO Stage of Development"],
-          "options": {
-              "enum_titles": ["AIRSS Ice Numeral Go/No Go", "WMO Concentration", "WMO Stage of Development"]
-          },
-          "default": "airss"
-        },
-        "ship_class": {
-          "title": "Ship Class",
-          "type": "string",
-          "enum": ["type_a", "type_b","type_c", "type_d", "type_e", "type_cac3","type_cac4"],
-          "options": {
-              "enum_titles": ["Type A", "Type B","Type C", "Type D", "Type E", "Type CAC3","Type CAC4"]
-          },
-          "default": "type_a"
-        },
-        "type_of_ice": {
-          "title": "Type of Ice (decayed/standard)",
-          "type": "string",
-          "enum": ["standard", "ridged"],
-          "default": "standard"
-        },
-        "combined_prop": {
-          "type": "string",
-          "template": "{{vis}}_{{ice}}_{{ship}}_go_no_go",
-          "options": {
-              "hidden": true
-          },
-          "watch": {
-              "vis": "type_of_visualisation",
-              "ice": "type_of_ice",
-              "ship": "ship_class"
-          }
+        "type": "object",
+        "title": "Data configuration",
+        "properties": {
+            "type_of_visualisation": {
+                "title": "Type of Visualisation",
+                "type": "string",
+                "enum": [
+                    "airss",
+                    "WMO Concentration",
+                    "WMO Stage of Development"
+                ],
+                "options": {
+                    "enum_titles": [
+                        "AIRSS Ice Numeral Go/No Go",
+                        "WMO Concentration",
+                        "WMO Stage of Development"
+                    ]
+                },
+                "default": "airss"
+            },
+            "ship_class": {
+                "title": "Ship Class",
+                "type": "string",
+                "enum": [
+                    "type_a",
+                    "type_b",
+                    "type_c",
+                    "type_d",
+                    "type_e",
+                    "type_cac3",
+                    "type_cac4"
+                ],
+                "options": {
+                    "enum_titles": [
+                        "Type A",
+                        "Type B",
+                        "Type C",
+                        "Type D",
+                        "Type E",
+                        "Type CAC3",
+                        "Type CAC4"
+                    ]
+                },
+                "default": "type_a"
+            },
+            "type_of_ice": {
+                "title": "Type of Ice (decayed/standard)",
+                "type": "string",
+                "enum": ["standard", "ridged"],
+                "default": "standard"
+            },
+            "combined_prop": {
+                "type": "string",
+                "template": "{{vis}}_{{ice}}_{{ship}}_go_no_go",
+                "options": {"hidden": true},
+                "watch": {
+                    "vis": "type_of_visualisation",
+                    "ice": "type_of_ice",
+                    "ship": "ship_class"
+                }
+            }
         }
-      }
     },
     "tooltip": [
         {"id": "wmo_concentration", "title": "WMO Concentration"},
         {"id": "wmo_stage_of_development", "title": "Stage of development"},
-        {"id": "{{combined_prop}}", "title": "AIRSS value (ship class: ({{ship_class}} ice: {{type_of_ice}})"}
+        {
+            "id": "{{combined_prop}}",
+            "title": "AIRSS value (ship class: ({{ship_class}} ice: {{type_of_ice}})"
+        }
     ],
     "variables": {
-      "ship_class": "Type A",
-      "type_of_ice": "standard",
-      "type_of_visualisation": "AIRSS Ice Numeral Go/No Go"
+        "ship_class": "type_a",
+        "type_of_ice": "standard",
+        "type_of_visualisation": "airss",
+        "combined_prop": "airss_standard_type_a_go_no_go"
     },
     "fill-color": [
-      "case",
-      [
-        "==",
-        [
-          "var",
-          "type_of_visualisation"
-        ],
-        "WMO Concentration"
-      ],
-      [
-        "match",
-        [
-          "get",
-          "wmo_concentration"
-        ],
-         "Ice Free",
-         [0,100,255, 1],
-         "Open Water (< 1/10 ice)",
-         [150, 200, 255, 1],
-         "Bergy Water",
-         [150, 200, 255, 1],
-         "1/10 - 3/10",
-         [140,255,160, 1],
-         "4/10 - 6/10",
-         [255,255,0, 1],
-         "7/10 - 8/10",
-         [255,125,5,1],
-         "9/10 - 10/10",
-         [255,0,0,1],
-         "8/10 - 9/10",
-         [255, 0, 0, 1],
-         "8/10 - 10/10",
-         [255, 0, 0, 1],
-         "7/10 - 9/10",
-         [255, 125, 7, 1],
-         "6/10 - 7/10",
-         [255, 125, 7, 1],
-         "5/10 - 7/10",
-         [255, 255, 0, 1],
-         "3/10 255 5/10",
-         [255, 255, 0, 1],
-         "3/10 255 4/10",
-         [255, 255, 0, 1],
-         "2/10 255 4/10",
-         [255, 255, 0, 1],
-         "Unknown/Undetermined",
-         [255,255,255,1],
-         [255,255,255,1]
-      ],
-      [
-        "==",
-        [
-          "var",
-          "type_of_visualisation"
-        ],
-        "airss"
-      ],
-      [
         "case",
-        ["==", ["get","polygon_type"], "Ice Free"],
-        [0, 100, 255],
-        ["==", ["get", ["var", "combined_prop"]] ,"<= 0 IN < 2"],
-        [217,239,139,1],
-        ["==", ["get", ["var", "combined_prop"]] , "<= 2 IN < 5"],
-        [166,217,106,1],
-        ["==", ["get", ["var", "combined_prop"]], "<= 5 IN < 10"],
-        [102,189,99,1],
-        ["==", ["get", ["var", "combined_prop"]], "IN > 10"],
-        [26,152,80,1],
-        ["==", ["get", ["var", "combined_prop"]], "<= -2 IN < 0"],
-        [255,135,135,1],
-        ["==", ["get", ["var", "combined_prop"]], "<= -5 IN < -2"],
-        [255,82,82,1],
-        ["==", ["get", ["var", "combined_prop"]], "<= -10 IN < -5"],
-        [255,0,0,1],
-        [0,0,0,1]
-      
-      ],
-      [0,0,0,1]
+        ["==", ["var", "type_of_visualisation"], "WMO Concentration"],
+        [
+            "match",
+            ["get", "wmo_concentration"],
+            "Ice Free",
+            [0, 100, 255, 1],
+            "Open Water (< 1/10 ice)",
+            [150, 200, 255, 1],
+            "Bergy Water",
+            [150, 200, 255, 1],
+            "1/10 - 3/10",
+            [140, 255, 160, 1],
+            "4/10 - 6/10",
+            [255, 255, 0, 1],
+            "7/10 - 8/10",
+            [255, 125, 5, 1],
+            "9/10 - 10/10",
+            [255, 0, 0, 1],
+            "8/10 - 9/10",
+            [255, 0, 0, 1],
+            "8/10 - 10/10",
+            [255, 0, 0, 1],
+            "7/10 - 9/10",
+            [255, 125, 7, 1],
+            "6/10 - 7/10",
+            [255, 125, 7, 1],
+            "5/10 - 7/10",
+            [255, 255, 0, 1],
+            "3/10 255 5/10",
+            [255, 255, 0, 1],
+            "3/10 255 4/10",
+            [255, 255, 0, 1],
+            "2/10 255 4/10",
+            [255, 255, 0, 1],
+            "Unknown/Undetermined",
+            [255, 255, 255, 1],
+            [255, 255, 255, 1]
+        ],
+        ["==", ["var", "type_of_visualisation"], "airss"],
+        [
+            "case",
+            ["==", ["get", "polygon_type"], "Ice Free"],
+            [0, 100, 255],
+            ["==", ["get", ["var", "combined_prop"]], "<= 0 IN < 2"],
+            [217, 239, 139, 1],
+            ["==", ["get", ["var", "combined_prop"]], "<= 2 IN < 5"],
+            [166, 217, 106, 1],
+            ["==", ["get", ["var", "combined_prop"]], "<= 5 IN < 10"],
+            [102, 189, 99, 1],
+            ["==", ["get", ["var", "combined_prop"]], "IN > 10"],
+            [26, 152, 80, 1],
+            ["==", ["get", ["var", "combined_prop"]], "<= -2 IN < 0"],
+            [255, 135, 135, 1],
+            ["==", ["get", ["var", "combined_prop"]], "<= -5 IN < -2"],
+            [255, 82, 82, 1],
+            ["==", ["get", ["var", "combined_prop"]], "<= -10 IN < -5"],
+            [255, 0, 0, 1],
+            [0, 0, 0, 1]
+        ],
+        [0, 0, 0, 1]
     ],
     "stroke-color": "black",
     "stroke-width": 1
-  }
+}

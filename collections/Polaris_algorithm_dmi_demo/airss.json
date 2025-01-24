@@ -6,23 +6,46 @@
         "type_of_visualisation": {
           "title": "Type of Visualisation",
           "type": "string",
-          "enum": ["AIRSS Ice Numeral Go/No Go", "WMO Concentration"],
-          "default": "POLARIS"
+          "enum": ["airss", "WMO Concentration", "WMO Stage of Development"],
+          "options": {
+              "enum_titles": ["AIRSS Ice Numeral Go/No Go", "WMO Concentration", "WMO Stage of Development"]
+          },
+          "default": "airss"
         },
         "ship_class": {
-          "title": "Vessel type",
+          "title": "Ship Class",
           "type": "string",
-          "enum": ["Type A", "Type B","Type C", "Type D", "Type E", "Type CAC3","Type CAC4"],
-          "default": "Type A"
+          "enum": ["type_a", "type_b","type_c", "type_d", "type_e", "type_cac3","type_cac4"],
+          "options": {
+              "enum_titles": ["Type A", "Type B","Type C", "Type D", "Type E", "Type CAC3","Type CAC4"]
+          },
+          "default": "type_a"
         },
         "type_of_ice": {
           "title": "Type of Ice (decayed/standard)",
           "type": "string",
           "enum": ["standard", "ridged"],
           "default": "standard"
+        },
+        "combined_prop": {
+          "type": "string",
+          "template": "{{vis}}_{{ice}}_{{ship}}_go_no_go",
+          "options": {
+              "hidden": true
+          },
+          "watch": {
+              "vis": "type_of_visualisation",
+              "ice": "type_of_ice",
+              "ship": "ship_class"
+          }
         }
       }
     },
+    "tooltip": [
+        {"id": "wmo_concentration", "title": "WMO Concentration"},
+        {"id": "wmo_stage_of_development", "title": "Stage of development"},
+        {"id": "{{combined_prop}}", "title": "AIRSS value (ship class: ({{ship_class}} ice: {{type_of_ice}})"}
+    ],
     "variables": {
       "ship_class": "Type A",
       "type_of_ice": "standard",
@@ -84,361 +107,28 @@
           "var",
           "type_of_visualisation"
         ],
-        "AIRSS Ice Numeral Go/No Go"
+        "airss"
       ],
       [
         "case",
-        [
-          "all",
-          ["==", ["var", "type_of_ice"], "standard"],
-          ["==", ["var", "ship_class"], "Type A"]
-        ],
-        [
-          "case",
-          ["==", ["get","polygon_type"], "Ice Free"],
-          [0, 100, 255],
-          ["==", ["get","airss_standard_type_a_go_no_go"] ,"<= 0 IN < 2"],
-          [217,239,139,1],
-          ["==", ["get","airss_standard_type_a_go_no_go"] , "<= 2 IN < 5"],
-          [166,217,106,1],
-          ["==", ["get","airss_standard_type_a_go_no_go"], "<= 5 IN < 10"],
-          [102,189,99,1],
-          ["==", ["get","airss_standard_type_a_go_no_go"], "IN > 10"],
-          [26,152,80,1],
-          ["==", ["get","airss_standard_type_a_go_no_go"], "<= -2 IN < 0"],
-          [255,135,135,1],
-          ["==", ["get","airss_standard_type_a_go_no_go"], "<= -5 IN < -2"],
-          [255,82,82,1],
-          ["==", ["get","airss_standard_type_a_go_no_go"], "<= -10 IN < -5"],
-          [255,0,0,1],
-          [0,0,0,1]
-        ],
-        [
-          "all",
-          ["==", ["var", "type_of_ice"], "standard"],
-          ["==", ["var", "ship_class"], "Type B"]
-        ],
-        [
-            "case",
-            ["==", ["get","polygon_type"], "Ice Free"],
-            [0, 100, 255],
-            ["==", ["get","airss_standard_type_b_go_no_go"] ,"<= 0 IN < 2"],
-            [217,239,139,1],
-            ["==", ["get","airss_standard_type_b_go_no_go"] , "<= 2 IN < 5"],
-            [166,217,106,1],
-            ["==", ["get","airss_standard_type_b_go_no_go"], "<= 5 IN < 10"],
-            [102,189,99,1],
-            ["==", ["get","airss_standard_type_b_go_no_go"], "IN > 10"],
-            [26,152,80,1],
-            ["==", ["get","airss_standard_type_b_go_no_go"], "<= -2 IN < 0"],
-            [255,135,135,1],
-            ["==", ["get","airss_standard_type_b_go_no_go"], "<= -5 IN < -2"],
-            [255,82,82,1],
-            ["==", ["get","airss_standard_type_b_go_no_go"], "<= -10 IN < -5"],
-            [255,0,0,1],
-            [0,0,0,1]
-          ],
-        [
-          "all",
-          ["==", ["var", "type_of_ice"], "standard"],
-          ["==", ["var", "ship_class"], "Type C"]
-        ],
-        [
-            "case",
-            ["==", ["get","polygon_type"], "Ice Free"],
-            [0, 100, 255],
-            ["==", ["get","airss_standard_type_c_go_no_go"] ,"<= 0 IN < 2"],
-            [217,239,139,1],
-            ["==", ["get","airss_standard_type_c_go_no_go"] , "<= 2 IN < 5"],
-            [166,217,106,1],
-            ["==", ["get","airss_standard_type_c_go_no_go"], "<= 5 IN < 10"],
-            [102,189,99,1],
-            ["==", ["get","airss_standard_type_c_go_no_go"], "IN > 10"],
-            [26,152,80,1],
-            ["==", ["get","airss_standard_type_c_go_no_go"], "<= -2 IN < 0"],
-            [255,135,135,1],
-            ["==", ["get","airss_standard_type_c_go_no_go"], "<= -5 IN < -2"],
-            [255,82,82,1],
-            ["==", ["get","airss_standard_type_c_go_no_go"], "<= -10 IN < -5"],
-            [255,0,0,1],
-            [0,0,0,1]
-          ],
-        [
-          "all",
-          ["==", ["var", "type_of_ice"], "standard"],
-          ["==", ["var", "ship_class"], "Type D"]
-        ],
-        [
-            "case",
-            ["==", ["get","polygon_type"], "Ice Free"],
-            [0, 100, 255],
-            ["==", ["get","airss_standard_type_d_go_no_go"] ,"<= 0 IN < 2"],
-            [217,239,139,1],
-            ["==", ["get","airss_standard_type_d_go_no_go"] , "<= 2 IN < 5"],
-            [166,217,106,1],
-            ["==", ["get","airss_standard_type_d_go_no_go"], "<= 5 IN < 10"],
-            [102,189,99,1],
-            ["==", ["get","airss_standard_type_d_go_no_go"], "IN > 10"],
-            [26,152,80,1],
-            ["==", ["get","airss_standard_type_d_go_no_go"], "<= -2 IN < 0"],
-            [255,135,135,1],
-            ["==", ["get","airss_standard_type_d_go_no_go"], "<= -5 IN < -2"],
-            [255,82,82,1],
-            ["==", ["get","airss_standard_type_d_go_no_go"], "<= -10 IN < -5"],
-            [255,0,0,1],
-            [0,0,0,1]
-          ],
-        [
-          "all",
-          ["==", ["var", "type_of_ice"], "standard"],
-          ["==", ["var", "ship_class"], "Type E"]
-        ],
-        [
-            "case",
-            ["==", ["get","polygon_type"], "Ice Free"],
-            [0, 100, 255],
-            ["==", ["get","airss_standard_type_e_go_no_go"] ,"<= 0 IN < 2"],
-            [217,239,139,1],
-            ["==", ["get","airss_standard_type_e_go_no_go"] , "<= 2 IN < 5"],
-            [166,217,106,1],
-            ["==", ["get","airss_standard_type_e_go_no_go"], "<= 5 IN < 10"],
-            [102,189,99,1],
-            ["==", ["get","airss_standard_type_e_go_no_go"], "IN > 10"],
-            [26,152,80,1],
-            ["==", ["get","airss_standard_type_e_go_no_go"], "<= -2 IN < 0"],
-            [255,135,135,1],
-            ["==", ["get","airss_standard_type_e_go_no_go"], "<= -5 IN < -2"],
-            [255,82,82,1],
-            ["==", ["get","airss_standard_type_e_go_no_go"], "<= -10 IN < -5"],
-            [255,0,0,1],
-            [0,0,0,1]
-        ],
-        [
-          "all",
-          ["==", ["var", "type_of_ice"], "standard"],
-          ["==", ["var", "ship_class"], "Type CAC3"]
-        ],
-        [
-            "case",
-            ["==", ["get","polygon_type"], "Ice Free"],
-            [0, 100, 255],
-            ["==", ["get","airss_standard_type_cac3_go_no_go"] ,"<= 0 IN < 2"],
-            [217,239,139,1],
-            ["==", ["get","airss_standard_type_cac3_go_no_go"] , "<= 2 IN < 5"],
-            [166,217,106,1],
-            ["==", ["get","airss_standard_type_cac3_go_no_go"], "<= 5 IN < 10"],
-            [102,189,99,1],
-            ["==", ["get","airss_standard_type_cac3_go_no_go"], "IN > 10"],
-            [26,152,80,1],
-            ["==", ["get","airss_standard_type_cac3_go_no_go"], "<= -2 IN < 0"],
-            [255,135,135,1],
-            ["==", ["get","airss_standard_type_cac3_go_no_go"], "<= -5 IN < -2"],
-            [255,82,82,1],
-            ["==", ["get","airss_standard_type_cac3_go_no_go"], "<= -10 IN < -5"],
-            [255,0,0,1],
-            [0,0,0,1]
-        ],
-        [
-          "all",
-          ["==", ["var", "type_of_ice"], "standard"],
-          ["==", ["var", "ship_class"], "Type CAC4"]
-        ],
-        [
-            "case",
-            ["==", ["get","polygon_type"], "Ice Free"],
-            [0, 100, 255],
-            ["==", ["get","airss_standard_type_cac4_go_no_go"] ,"<= 0 IN < 2"],
-            [217,239,139,1],
-            ["==", ["get","airss_standard_type_cac4_go_no_go"] , "<= 2 IN < 5"],
-            [166,217,106,1],
-            ["==", ["get","airss_standard_type_cac4_go_no_go"], "<= 5 IN < 10"],
-            [102,189,99,1],
-            ["==", ["get","airss_standard_type_cac4_go_no_go"], "IN > 10"],
-            [26,152,80,1],
-            ["==", ["get","airss_standard_type_cac4_go_no_go"], "<= -2 IN < 0"],
-            [255,135,135,1],
-            ["==", ["get","airss_standard_type_cac4_go_no_go"], "<= -5 IN < -2"],
-            [255,82,82,1],
-            ["==", ["get","airss_standard_type_cac4_go_no_go"], "<= -10 IN < -5"],
-            [255,0,0,1],
-            [0,0,0,1]
-        ],
-        [
-            "all",
-            ["==", ["var", "type_of_ice"], "ridged"],
-            ["==", ["var", "ship_class"], "Type A"]
-          ],
-          [
-            "case",
-            ["==", ["get","polygon_type"], "Ice Free"],
-            [0, 100, 255],
-            ["==", ["get","airss_ridged_type_a_go_no_go"] ,"<= 0 IN < 2"],
-            [217,239,139,1],
-            ["==", ["get","airss_ridged_type_a_go_no_go"] , "<= 2 IN < 5"],
-            [166,217,106,1],
-            ["==", ["get","airss_ridged_type_a_go_no_go"], "<= 5 IN < 10"],
-            [102,189,99,1],
-            ["==", ["get","airss_ridged_type_a_go_no_go"], "IN > 10"],
-            [26,152,80,1],
-            ["==", ["get","airss_ridged_type_a_go_no_go"], "<= -2 IN < 0"],
-            [255,135,135,1],
-            ["==", ["get","airss_ridged_type_a_go_no_go"], "<= -5 IN < -2"],
-            [255,82,82,1],
-            ["==", ["get","airss_ridged_type_a_go_no_go"], "<= -10 IN < -5"],
-            [255,0,0,1],
-            [0,0,0,1]
-          ],
-          [
-            "all",
-            ["==", ["var", "type_of_ice"], "ridged"],
-            ["==", ["var", "ship_class"], "Type B"]
-          ],
-          [
-              "case",
-              ["==", ["get","polygon_type"], "Ice Free"],
-              [0, 100, 255],
-              ["==", ["get","airss_ridged_type_b_go_no_go"] ,"<= 0 IN < 2"],
-              [217,239,139,1],
-              ["==", ["get","airss_ridged_type_b_go_no_go"] , "<= 2 IN < 5"],
-              [166,217,106,1],
-              ["==", ["get","airss_ridged_type_b_go_no_go"], "<= 5 IN < 10"],
-              [102,189,99,1],
-              ["==", ["get","airss_ridged_type_b_go_no_go"], "IN > 10"],
-              [26,152,80,1],
-              ["==", ["get","airss_ridged_type_b_go_no_go"], "<= -2 IN < 0"],
-              [255,135,135,1],
-              ["==", ["get","airss_ridged_type_b_go_no_go"], "<= -5 IN < -2"],
-              [255,82,82,1],
-              ["==", ["get","airss_ridged_type_b_go_no_go"], "<= -10 IN < -5"],
-              [255,0,0,1],
-              [0,0,0,1]
-            ],
-          [
-            "all",
-            ["==", ["var", "type_of_ice"], "ridged"],
-            ["==", ["var", "ship_class"], "Type C"]
-          ],
-          [
-              "case",
-              ["==", ["get","polygon_type"], "Ice Free"],
-              [0, 100, 255],
-              ["==", ["get","airss_ridged_type_c_go_no_go"] ,"<= 0 IN < 2"],
-              [217,239,139,1],
-              ["==", ["get","airss_ridged_type_c_go_no_go"] , "<= 2 IN < 5"],
-              [166,217,106,1],
-              ["==", ["get","airss_ridged_type_c_go_no_go"], "<= 5 IN < 10"],
-              [102,189,99,1],
-              ["==", ["get","airss_ridged_type_c_go_no_go"], "IN > 10"],
-              [26,152,80,1],
-              ["==", ["get","airss_ridged_type_c_go_no_go"], "<= -2 IN < 0"],
-              [255,135,135,1],
-              ["==", ["get","airss_ridged_type_c_go_no_go"], "<= -5 IN < -2"],
-              [255,82,82,1],
-              ["==", ["get","airss_ridged_type_c_go_no_go"], "<= -10 IN < -5"],
-              [255,0,0,1],
-              [0,0,0,1]
-            ],
-          [
-            "all",
-            ["==", ["var", "type_of_ice"], "ridged"],
-            ["==", ["var", "ship_class"], "Type D"]
-          ],
-          [
-              "case",
-              ["==", ["get","polygon_type"], "Ice Free"],
-              [0, 100, 255],
-              ["==", ["get","airss_ridged_type_d_go_no_go"] ,"<= 0 IN < 2"],
-              [217,239,139,1],
-              ["==", ["get","airss_ridged_type_d_go_no_go"] , "<= 2 IN < 5"],
-              [166,217,106,1],
-              ["==", ["get","airss_ridged_type_d_go_no_go"], "<= 5 IN < 10"],
-              [102,189,99,1],
-              ["==", ["get","airss_ridged_type_d_go_no_go"], "IN > 10"],
-              [26,152,80,1],
-              ["==", ["get","airss_ridged_type_d_go_no_go"], "<= -2 IN < 0"],
-              [255,135,135,1],
-              ["==", ["get","airss_ridged_type_d_go_no_go"], "<= -5 IN < -2"],
-              [255,82,82,1],
-              ["==", ["get","airss_ridged_type_d_go_no_go"], "<= -10 IN < -5"],
-              [255,0,0,1],
-              [0,0,0,1]
-            ],
-          [
-            "all",
-            ["==", ["var", "type_of_ice"], "ridged"],
-            ["==", ["var", "ship_class"], "Type E"]
-          ],
-          [
-              "case",
-              ["==", ["get","polygon_type"], "Ice Free"],
-              [0, 100, 255],
-              ["==", ["get","airss_ridged_type_e_go_no_go"] ,"<= 0 IN < 2"],
-              [217,239,139,1],
-              ["==", ["get","airss_ridged_type_e_go_no_go"] , "<= 2 IN < 5"],
-              [166,217,106,1],
-              ["==", ["get","airss_ridged_type_e_go_no_go"], "<= 5 IN < 10"],
-              [102,189,99,1],
-              ["==", ["get","airss_ridged_type_e_go_no_go"], "IN > 10"],
-              [26,152,80,1],
-              ["==", ["get","airss_ridged_type_e_go_no_go"], "<= -2 IN < 0"],
-              [255,135,135,1],
-              ["==", ["get","airss_ridged_type_e_go_no_go"], "<= -5 IN < -2"],
-              [255,82,82,1],
-              ["==", ["get","airss_ridged_type_e_go_no_go"], "<= -10 IN < -5"],
-              [255,0,0,1],
-              [0,0,0,1]
-          ],
-          [
-            "all",
-            ["==", ["var", "type_of_ice"], "ridged"],
-            ["==", ["var", "ship_class"], "Type CAC3"]
-          ],
-          [
-              "case",
-              ["==", ["get","polygon_type"], "Ice Free"],
-              [0, 100, 255],
-              ["==", ["get","airss_ridged_type_cac3_go_no_go"] ,"<= 0 IN < 2"],
-              [217,239,139,1],
-              ["==", ["get","airss_ridged_type_cac3_go_no_go"] , "<= 2 IN < 5"],
-              [166,217,106,1],
-              ["==", ["get","airss_ridged_type_cac3_go_no_go"], "<= 5 IN < 10"],
-              [102,189,99,1],
-              ["==", ["get","airss_ridged_type_cac3_go_no_go"], "IN > 10"],
-              [26,152,80,1],
-              ["==", ["get","airss_ridged_type_cac3_go_no_go"], "<= -2 IN < 0"],
-              [255,135,135,1],
-              ["==", ["get","airss_ridged_type_cac3_go_no_go"], "<= -5 IN < -2"],
-              [255,82,82,1],
-              ["==", ["get","airss_ridged_type_cac3_go_no_go"], "<= -10 IN < -5"],
-              [255,0,0,1],
-              [0,0,0,1]
-          ],
-          [
-            "all",
-            ["==", ["var", "type_of_ice"], "ridged"],
-            ["==", ["var", "ship_class"], "Type CAC4"]
-          ],
-          [
-              "case",
-              ["==", ["get","polygon_type"], "Ice Free"],
-              [0, 100, 255],
-              ["==", ["get","airss_ridged_type_cac4_go_no_go"] ,"<= 0 IN < 2"],
-              [217,239,139,1],
-              ["==", ["get","airss_ridged_type_cac4_go_no_go"] , "<= 2 IN < 5"],
-              [166,217,106,1],
-              ["==", ["get","airss_ridged_type_cac4_go_no_go"], "<= 5 IN < 10"],
-              [102,189,99,1],
-              ["==", ["get","airss_ridged_type_cac4_go_no_go"], "IN > 10"],
-              [26,152,80,1],
-              ["==", ["get","airss_ridged_type_cac4_go_no_go"], "<= -2 IN < 0"],
-              [255,135,135,1],
-              ["==", ["get","airss_ridged_type_cac4_go_no_go"], "<= -5 IN < -2"],
-              [255,82,82,1],
-              ["==", ["get","airss_ridged_type_cac4_go_no_go"], "<= -10 IN < -5"],
-              [255,0,0,1],
-              [0,0,0,1]
-          ],
+        ["==", ["get","polygon_type"], "Ice Free"],
+        [0, 100, 255],
+        ["==", ["get", ["var", "combined_prop"]] ,"<= 0 IN < 2"],
+        [217,239,139,1],
+        ["==", ["get", ["var", "combined_prop"]] , "<= 2 IN < 5"],
+        [166,217,106,1],
+        ["==", ["get", ["var", "combined_prop"]], "<= 5 IN < 10"],
+        [102,189,99,1],
+        ["==", ["get", ["var", "combined_prop"]], "IN > 10"],
+        [26,152,80,1],
+        ["==", ["get", ["var", "combined_prop"]], "<= -2 IN < 0"],
+        [255,135,135,1],
+        ["==", ["get", ["var", "combined_prop"]], "<= -5 IN < -2"],
+        [255,82,82,1],
+        ["==", ["get", ["var", "combined_prop"]], "<= -10 IN < -5"],
+        [255,0,0,1],
         [0,0,0,1]
+      
       ],
       [0,0,0,1]
     ],

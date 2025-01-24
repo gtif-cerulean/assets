@@ -68,7 +68,7 @@
         {"id": "wmo_stage_of_development", "title": "Stage of development"},
         {
             "id": "{{combined_prop}}",
-            "title": "AIRSS value (ship class: ({{ship_class}} ice: {{type_of_ice}})"
+            "title": "AIRSS value (ship class: {{ship_class}} ice: {{type_of_ice}})"
         }
     ],
     "variables": {

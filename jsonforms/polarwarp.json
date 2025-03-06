@@ -7,7 +7,7 @@
             "options": {
                 "drawtools": {
                     "for": "eox-map#main",
-                    "projection": "EPSG:4326"
+                    "projection": "EPSG:3413"
                 }
             },
             "format": "bounding-box"

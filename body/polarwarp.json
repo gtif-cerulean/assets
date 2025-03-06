@@ -1,0 +1,9 @@
+{
+    "inputs": {
+        "date": "{{date}}",
+        "lon_min": "{{bbox.0}}",
+        "lat_min": "{{bbox.1}}",
+        "lon_max": "{{bbox.2}}",
+        "lat_max": "{{bbox.3}}"
+    }
+}

@@ -5,8 +5,10 @@
             "type": "array",
             "title": "Select area on map",
             "options": {
-                "for": "eox-map#main",
-                "projection": "EPSG:4326"
+                "drawtools": {
+                    "for": "eox-map#main",
+                    "projection": "EPSG:4326"
+                }
             },
             "format": "bounding-box"
         },

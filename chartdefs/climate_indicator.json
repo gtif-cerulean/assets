@@ -6,39 +6,44 @@
         "name": "process_eox"
     },
     "transform": [
-      {
-        "calculate": "toDate(-2208988800000 + datum.time * 86400000)",
-        "as": "datetransformed"
+    {
+      "flatten": ["data"],
+      "as": ["data"]
+    },
+    {
+      "calculate": "toDate(-2208988800000 + datum.data.time * 86400000)",
+      "as": "datetransformed"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {"field": "datetransformed", "type": "temporal", "title": "Time"},
+        "y": {
+          "field": "data.siextentn_min",
+          "type": "quantitative",
+          "title": "siextentn range"
+        },
+        "y2": {"field": "data.siextentn_max"},
+        "color": {"value": "steelblue"},
+        "opacity": {"value": 0.5}
       }
-    ],
-    "layer": [
-      {
-        "mark": "area",
-        "encoding": {
-          "x": {"field": "datetransformed", "type": "temporal", "title": "Time"},
-          "y": {
-            "field": "siextentn_min",
-            "type": "quantitative",
-            "title": "siextentn range"
-          },
-          "y2": {"field": "siextentn_max"},
-          "color": {"value": "steelblue"},
-          "opacity": {"value": 0.5}
-        }
-      },
-      {
-        "mark": "point",
-        "encoding": {
-          "x": {"field": "datetransformed", "type": "temporal"},
-          "y": {"field": "siextentn_min", "type": "quantitative"}
-        }
-      },
-      {
-        "mark": "point",
-        "encoding": {
-          "x": {"field": "datetransformed", "type": "temporal"},
-          "y": {"field": "siextentn_max", "type": "quantitative"}
-        }
+    },
+    {
+      "mark": "point",
+      "encoding": {
+        "x": {"field": "datetransformed", "type": "temporal"},
+        "y": {"field": "data.siextentn_min", "type": "quantitative"}
       }
-    ]
-  }
+    },
+    {
+      "mark": "point",
+      "encoding": {
+        "x": {"field": "datetransformed", "type": "temporal"},
+        "y": {"field": "data.siextentn_max", "type": "quantitative"}
+      }
+    }
+  ],
+  "background": "transparent"
+}

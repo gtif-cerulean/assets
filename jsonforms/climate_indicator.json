@@ -12,7 +12,7 @@
                 "CanESM5",
                 "ACCESS-CM2"
             ],
-            "default": "NorESM2-LM"
+            "default": "EC-Earth3-Veg"
         },
         "ssp": {
             "type": "string",

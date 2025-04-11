@@ -1,7 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
-    "height": 300,
+    "width": "container",
+    "height": "250",
+    "autosize": "fit",
+    "resize": true,
     "data": {
         "name": "process_eox"
     },

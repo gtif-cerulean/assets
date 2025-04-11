@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "source": {
+            "type": "string",
+            "title": "Select source",
+            "enum": [
+                "NorESM2-LM",
+                "MRI-ESM2-0",
+                "EC-Earth3-Veg",
+                "MIROC6",
+                "CanESM5",
+                "ACCESS-CM2"
+            ],
+            "default": "NorESM2-LM"
+        },
+        "ssp": {
+            "type": "string",
+            "title": "Select SSP",
+            "enum": [
+                "585",
+                "460",
+                "370",
+                "245",
+                "126"
+            ],
+            "default": "585"
+        }
+    }
+}

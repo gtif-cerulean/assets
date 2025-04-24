@@ -52,8 +52,8 @@
             {"field": "data.datetime", "type": "temporal", "format": "%Y-%m-%d  %H:%M", "title": "date"},
             {"field": "data.mean", "type": "quantitative", "format": ".3f", "title": "mean"},
             {"field": "data.min", "type": "quantitative", "format": ".3f", "title": "minimum"},
-            {"field": "data.max", "type": "quantitative", "format": ".3f", "title": "maximum"}
-            
+            {"field": "data.max", "type": "quantitative", "format": ".3f", "title": "maximum"},
+            {"field": "data.stddev", "type": "quantitative", "format": ".3f", "title": "stddev"}
           ]
         },
         "params": [

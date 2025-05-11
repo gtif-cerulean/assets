@@ -1,0 +1,15 @@
+{
+    "inputs": { 
+      "start_year": "{{date_start}}",
+      "end_year": "{{date_end}}",
+      "data_dir": "/data/",
+      "formula": "A",
+      "x_resolution": "0.4",
+      "y_resolution": "0.4",
+      "lon_min": "{{bbox.0}}",
+      "lat_min": "{{bbox.1}}",
+      "lon_max": "{{bbox.2}}",
+      "lat_max": "{{bbox.3}}",
+      "clean": "True"
+    }
+  }

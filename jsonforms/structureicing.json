@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "bbox": {
+            "type": "array",
+            "title": "Select area (bbox) on map",
+            "options": {
+                "drawtools": {
+                    "for": "eox-map#main",
+                    "projection": "EPSG:4326"
+                }
+            },
+            "format": "bounding-box"
+        },
+        "date_start": {
+            "type": "string",
+            "title": "Select start year",
+            "enum": [
+                "2020",
+                "2021",
+                "2022"
+            ],
+            "default": "2020"
+        },
+        "date_end": {
+            "type": "string",
+            "title": "Select end year",
+            "enum": [
+                "2020",
+                "2021",
+                "2022"
+            ],
+            "default": "2020"
+        }
+    }
+}

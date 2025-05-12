@@ -1,51 +1,127 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
-    "height": "250",
-    "autosize": "fit",
-    "resize": true,
-    "data": {
-        "name": "process_eox"
-    },
-    "transform": [
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Sea Ice Extent with individual checkboxes to filter by model, scenario, and season.",
+  "data": {
+    "name": "process_eox",
+    "format": {"type": "csv", "parse": {"time": "date"}}
+  },
+
+  "params": [
     {
-      "flatten": ["data"],
-      "as": ["data"]
+      "name": "show_ACCESS_CM2",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "ACCESS-CM2 "}
     },
     {
-      "calculate": "toDate(-2208988800000 + datum.data.time * 86400000)",
-      "as": "datetransformed"
+      "name": "show_CanESM5",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "CanESM5 "}
+    },
+    {
+      "name": "show_EC_Earth3_Veg",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "EC-Earth3-Veg "}
+    },
+    {
+      "name": "show_MIROC6",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "MIROC6 "}
+    },
+    {
+      "name": "show_MRI_ESM2_0",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "MRI-ESM2-0 "}
+    },
+    {
+      "name": "show_NorESM2_LM",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "NorESM2-LM "}
+    },
+    {
+      "name": "show_ssp126",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "ssp126 "}
+    },
+    {
+      "name": "show_ssp245",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "ssp245 "}
+    },
+    {
+      "name": "show_ssp370",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "ssp370 "}
+    },
+    {
+      "name": "show_ssp460",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "ssp460 "}
+    },
+    {
+      "name": "show_ssp585",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "ssp585 "}
+    },
+    {
+      "name": "show_DJF",
+      "value": true,
+      "bind": {"input": "checkbox", "name": "DJF "}
+    },
+    {
+      "name": "show_MAM",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "MAM "}
+    },
+    {
+      "name": "show_JJA",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "JJA "}
+    },
+    {
+      "name": "show_SON",
+      "value": false,
+      "bind": {"input": "checkbox", "name": "SON "}
     }
   ],
-  "layer": [
+
+  "transform": [
     {
-      "mark": "area",
-      "encoding": {
-        "x": {"field": "datetransformed", "type": "temporal", "title": "Time"},
-        "y": {
-          "field": "data.siextentn_min",
-          "type": "quantitative",
-          "title": "siextentn range"
-        },
-        "y2": {"field": "data.siextentn_max"},
-        "color": {"value": "steelblue"},
-        "opacity": {"value": 0.5}
-      }
+      "calculate": "datum.model + ' | ' + datum.scenario + ' | ' + datum.season",
+      "as": "model_scenario_season"
     },
     {
-      "mark": "point",
-      "encoding": {
-        "x": {"field": "datetransformed", "type": "temporal"},
-        "y": {"field": "data.siextentn_min", "type": "quantitative"}
-      }
+      "calculate": "year(datum.time)",
+      "as": "year"
     },
     {
-      "mark": "point",
-      "encoding": {
-        "x": {"field": "datetransformed", "type": "temporal"},
-        "y": {"field": "data.siextentn_max", "type": "quantitative"}
-      }
+      "aggregate": [{
+        "op": "mean",
+        "field": "siextentn",
+        "as": "mean_siextentn"
+      }],
+      "groupby": ["year", "model", "scenario", "season", "model_scenario_season"]
+    }, 
+    {
+      "filter": "(datum.model != 'ACCESS-CM2' || show_ACCESS_CM2) && (datum.model != 'CanESM5' || show_CanESM5) && (datum.model != 'EC-Earth3-Veg' || show_EC_Earth3_Veg) && (datum.model != 'MIROC6' || show_MIROC6) && (datum.model != 'MRI-ESM2-0' || show_MRI_ESM2_0) && (datum.model != 'NorESM2-LM' || show_NorESM2_LM) && (datum.scenario != 'ssp126' || show_ssp126) && (datum.scenario != 'ssp245' || show_ssp245) && (datum.scenario != 'ssp370' || show_ssp370) && (datum.scenario != 'ssp460' || show_ssp460) && (datum.scenario != 'ssp585' || show_ssp585) && (datum.season != 'DJF' || show_DJF) && (datum.season != 'MAM' || show_MAM) && (datum.season != 'JJA' || show_JJA) && (datum.season != 'SON' || show_SON)"
     }
   ],
-  "background": "transparent"
+
+  "mark": "line",
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": {
+        "format": "d",
+        "tickCount": 8      
+      }
+    },
+    "y": {"field": "mean_siextentn", "type": "quantitative", "title": "Sea Ice Extent (10^6 km²)"},
+    "color": {
+      "field": "model_scenario_season",
+      "type": "nominal",
+      "title": "Model | Scenario | Season"
+    }
+  }
 }

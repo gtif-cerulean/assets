@@ -2,8 +2,7 @@
     "variables": {
       "strokeWidth": 2
     },
-    "fill-color": "purple",
-    "stroke-color": "black",
+    "stroke-color": "red",
     "stroke-width": [
       "var",
       "strokeWidth"
@@ -13,11 +12,12 @@
       "title": "Data configuration",
       "properties": {
         "strokeWidth": {
+          "title": "Vector line width",
           "type": "number",
-          "minimum": 0,
-          "maximum": 10,
+          "minimum": 3,
+          "maximum": 20,
           "format": "range",
-          "default": 2
+          "default": 10
         }
       }
     }

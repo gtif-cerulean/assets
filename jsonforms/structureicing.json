@@ -16,7 +16,9 @@
             "type": "string",
             "title": "Select start year",
             "enum": [
-                "2020"
+                "2020",
+                "2021",
+                "2022"
             ],
             "default": "2020"
         },
@@ -24,7 +26,9 @@
             "type": "string",
             "title": "Select end year",
             "enum": [
-                "2020"
+                "2020",
+                "2021",
+                "2022"
             ],
             "default": "2020"
         }

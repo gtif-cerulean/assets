@@ -5,17 +5,17 @@
             "title": "Start date",
             "type": "string",
             "enum": [
-                "20240306"
+                "20250115"
             ],
-            "default": "20240306"
+            "default": "20250115"
         },
         "end_date": {
             "title": "End date",
             "type": "string",
             "enum": [
-                "20240311"
+                "20250120"
             ],
-            "default": "20240311"
+            "default": "20250120"
         }
     }
 }

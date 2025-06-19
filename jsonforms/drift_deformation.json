@@ -1,7 +1,7 @@
 {
     "type": "object",
     "properties": {
-        "date_start": {
+        "start_date": {
             "title": "Start date",
             "type": "string",
             "enum": [
@@ -9,7 +9,7 @@
             ],
             "default": "20240306"
         },
-        "date_end": {
+        "end_date": {
             "title": "End date",
             "type": "string",
             "enum": [

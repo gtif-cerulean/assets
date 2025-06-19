@@ -13,9 +13,9 @@
             "title": "End date",
             "type": "string",
             "enum": [
-                "20250120"
+                "20250118"
             ],
-            "default": "20250120"
+            "default": "20250118"
         }
     }
 }

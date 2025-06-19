@@ -1,0 +1,24 @@
+{
+    "variables": {
+      "strokeWidth": 6
+    },
+    "stroke-color": "red",
+    "stroke-width": [
+      "var",
+      "strokeWidth"
+    ],
+    "jsonform": {
+      "type": "object",
+      "title": "Data configuration",
+      "properties": {
+        "strokeWidth": {
+          "title": "Vector line width",
+          "type": "number",
+          "minimum": 3,
+          "maximum": 20,
+          "format": "range",
+          "default": 6
+        }
+      }
+    }
+  }

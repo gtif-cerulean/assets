@@ -1,6 +1,6 @@
 {
     "variables": {
-      "strokeWidth": 6
+      "strokeWidth": 4
     },
     "stroke-color": "red",
     "stroke-width": [
@@ -14,10 +14,10 @@
         "strokeWidth": {
           "title": "Vector line width",
           "type": "number",
-          "minimum": 3,
-          "maximum": 20,
+          "minimum": 1,
+          "maximum": 8,
           "format": "range",
-          "default": 6
+          "default": 4
         }
       }
     }

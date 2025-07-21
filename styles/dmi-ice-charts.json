@@ -1,9 +1,12 @@
 {
+  "tooltip": [{"id": "CT", "title": "CT"}],
   "fill-color": [
     [
       "interpolate",
       ["linear"],
       ["get", "CT"],
+      -9,
+      [0, 0, 255, 1],
       0,
       [0, 100, 255, 1],
       10,

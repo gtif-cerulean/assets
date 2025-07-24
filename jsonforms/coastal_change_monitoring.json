@@ -1,7 +1,7 @@
 {
     "type": "object",
     "properties": {
-        "aoi_json": {
+        "bbox": {
             "type": "array",
             "title": "Select area (bbox) on map",
             "options": {

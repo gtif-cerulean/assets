@@ -2,7 +2,7 @@
     "type": "object",
     "properties": {
         "aoi_json": {
-            "type": "geojson",
+            "type": "array",
             "title": "Select area (bbox) on map",
             "options": {
                 "autoStartSelection": false,
@@ -11,7 +11,7 @@
                     "projection": "EPSG:4326"
                 }
             },
-            "format": "polygon"
+            "format": "bounding-box"
         },
         "query_date": {
             "title": "Select date",

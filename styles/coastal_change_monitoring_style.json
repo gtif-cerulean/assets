@@ -2,13 +2,7 @@
   "color": [
     "case",
     [">", ["band", 1], 0],
-    [
-      "color",
-      ["clamp", ["band", 1], 0, 1],
-      ["clamp", ["band", 2], 0, 1],
-      ["clamp", ["band", 3], 0, 1],
-      255
-    ],
+    ["color", ["band", 1], ["band", 2], ["band", 3], 255],
     [0, 0, 0, 0]
   ]
 }

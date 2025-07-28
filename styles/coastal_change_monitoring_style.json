@@ -2,7 +2,7 @@
   "color": [
     "case",
     [">", ["band", 1], 0],
-    ["color", ["band", 1], ["band", 2], ["band", 3], 255],
+    ["color", ["band", 1], ["band", 2], ["band", 3], 1],
     [0, 0, 0, 0]
   ]
 }

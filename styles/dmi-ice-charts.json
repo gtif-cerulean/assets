@@ -2,6 +2,8 @@
   "tooltip": [{"id": "CT", "title": "CT"}],
   "fill-color": [
     "case",
+    ["=", ["get", "CT"], null],
+    [0, 0, 0, 0],
     ["<", ["get", "CT"], 0],
     [0, 0, 255, 0],
     ["<=", ["get", "CT"], 10],

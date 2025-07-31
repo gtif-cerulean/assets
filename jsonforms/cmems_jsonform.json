@@ -30,7 +30,7 @@
             "title": "Depth [m]",
             "minimum": -5500,
             "maximum": 0,
-            "steps": 100,
+            "steps": 1,
             "default": 1,
             "format": "range",
             "options": {

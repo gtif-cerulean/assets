@@ -28,8 +28,8 @@
         "depth": {
             "type": "number",
             "title": "Depth [m]",
-            "minimum": -5500,
-            "maximum": 0,
+            "minimum": 0,
+            "maximum": 5500,
             "steps": 1,
             "default": 1,
             "format": "range",

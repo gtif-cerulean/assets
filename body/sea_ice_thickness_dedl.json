@@ -2,7 +2,6 @@
     "inputs": {
         "collection-id": "EO.ECMWF.DAT.SATELLITE_SEA_ICE_THICKNESS",
         "start-date": "{{start-date}}",
-        "end-date": "{{end-date}}",
-
+        "end-date": "{{end-date}}"
     }
 }

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {    
+        "start-date": {
+            "title": "Select start date (in winter)",
+            "type": "date",
+            "format": "date",
+            "default": "2023-10-01"
+        },
+        "end-date": {
+            "title": "Select end date (in winter)",
+            "type": "date",
+            "format": "date",
+            "default": "2024-04-30"
+        }
+    }
+}

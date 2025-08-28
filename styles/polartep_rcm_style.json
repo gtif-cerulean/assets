@@ -23,7 +23,7 @@
                 "band",
                 1
             ],
-            0
+            -10
         ],
         [
             "interpolate",
@@ -95,14 +95,14 @@
                 "properties": {
                     "vmin": {
                         "type": "number",
-                        "minimum": -1,
+                        "minimum": -10,
                         "maximum": 15,
                         "format": "range",
                         "default": 0
                     },
                     "vmax": {
                         "type": "number",
-                        "minimum": -1,
+                        "minimum": -10,
                         "maximum": 15,
                         "format": "range",
                         "default": 10

@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "start_date": {
+            "title": "Start date",
+            "type": "string",
+            "enum": [
+                "20250822"
+            ],
+            "default": "20250822"
+        },
+        "end_date": {
+            "title": "End date",
+            "type": "string",
+            "enum": [
+                "20250825"
+            ],
+            "default": "20250825"
+        }
+    }
+}

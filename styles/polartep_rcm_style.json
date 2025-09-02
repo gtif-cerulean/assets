@@ -9,11 +9,11 @@
     },
     "variables": {
         "vmin": 0,
-        "vmax": 4
+        "vmax": 1
     },
     "color": [
         "case",
-        [">", ["band", 1], 0],
+        ["!=", ["band", 1], 0],
         [
             "interpolate",
             ["linear"],
@@ -45,9 +45,9 @@
                     },
                     "vmax": {
                         "type": "number",
-                        "maximum": 8,
+                        "maximum": 5,
                         "format": "range",
-                        "default": 4
+                        "default": 1
                     }
                 },
                 "format": "minmax"

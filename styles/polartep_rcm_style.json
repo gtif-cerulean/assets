@@ -1,115 +1,22 @@
 {
-    "legend": {
-        "title": "Polartep RCM",
+   "legend": {
+        "title": "Sigma0",
         "range": [
-            "rgba(0, 0, 255, 1)",
-            "rgba(100, 100, 100, 1)",
-            "rgba(253, 0, 0, 1)"
+            "rgba(0, 0, 0, 1)",
+            "rgba(255, 255, 255, 1)"
         ],
-        "domainProperties": [
-            "vmin",
-            "vmax"
-        ]
+    "domain": [
+      0,
+      5
+    ]
     },
-    "variables": {
-        "vmin": 0,
-        "vmax": 10
-    },
-    "color": [
-        "case",
-        [
-            ">",
-            [
-                "band",
-                1
-            ],
-            -10
-        ],
-        [
-            "interpolate",
-            [
-                "linear"
-            ],
-            [
-                "/",
-                [
-                    "-",
-                    [
-                        "band",
-                        1
-                    ],
-                    [
-                        "var",
-                        "vmin"
-                    ]
-                ],
-                [
-                    "-",
-                    [
-                        "var",
-                        "vmax"
-                    ],
-                    [
-                        "var",
-                        "vmin"
-                    ]
-                ]
-            ],
-            0,
-            [
-                0,
-                0,
-                255,
-                1
-            ],
-            0.5,
-            [
-                100,
-                100,
-                100,
-                1
-            ],
-            1,
-            [
-                253,
-                0,
-                0,
-                1
-            ]
-        ],
-        [
-            "color",
-            0,
-            0,
-            0,
-            0
-        ]
+  "color": [
+    "case",
+    ["!=", ["band", 1], 0],
+    ["interpolate", ["linear"], ["band", 1],
+      0, [  0,   0,  0, 1],
+      5,  [  255, 255, 255, 1]
     ],
-    "jsonform": {
-        "type": "object",
-        "title": "Data configuration",
-        "properties": {
-            "vminmax": {
-                "title": "Polartep RCM",
-                "type": "object",
-                "properties": {
-                    "vmin": {
-                        "type": "number",
-                        "minimum": -10,
-                        "maximum": 15,
-                        "format": "range",
-                        "default": 0
-                    },
-                    "vmax": {
-                        "type": "number",
-                        "minimum": -10,
-                        "maximum": 15,
-                        "format": "range",
-                        "default": 10
-                    }
-                },
-                "format": "minmax"
-            }
-        }
-    }
+    [0, 0, 0, 0]
+  ]
 }

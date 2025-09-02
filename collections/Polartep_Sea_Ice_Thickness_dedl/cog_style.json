@@ -1,16 +1,21 @@
 {
    "legend": {
-        "title": "Sea Ice Thickness",
-        "range": [
-            "rgba(0, 0, 40, 1)",
-            "rgba(170, 170, 170, 1)",
-            "rgba(255, 255, 255, 1)"
-        ],
+    "title": "Sea Ice Thickness",
+    "range": [
+      "rgba(0, 0, 40, 1)",
+      "rgba(170, 170, 170, 1)",
+      "rgba(255, 255, 255, 1)"
+    ],
     "domain": [
       0,
       10
     ]
-    },
+  },
+   "jsonform": {
+        "type": "object",
+        "title": "Data configuration",
+        "properties": {}
+   },
   "color": [
     "case",
     [">", ["band", 1], 0],

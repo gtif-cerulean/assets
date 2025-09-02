@@ -1,22 +1,57 @@
 {
-   "legend": {
+    "legend": {
         "title": "Sigma0",
         "range": [
             "rgba(0, 0, 0, 1)",
             "rgba(255, 255, 255, 1)"
         ],
-    "domain": [
-      0,
-      5
-    ]
+        "domainProperties": ["vmin", "vmax"]
     },
-  "color": [
-    "case",
-    ["!=", ["band", 1], 0],
-    ["interpolate", ["linear"], ["band", 1],
-      0, [  0,   0,  0, 1],
-      5,  [  255, 255, 255, 1]
+    "variables": {
+        "vmin": 0,
+        "vmax": 4
+    },
+    "color": [
+        "case",
+        [">", ["band", 1], 0],
+        [
+            "interpolate",
+            ["linear"],
+            [
+                "/",
+                ["-", ["band", 1], ["var", "vmin"]],
+                ["-", ["var", "vmax"], ["var", "vmin"]]
+            ],
+            0,
+            [0, 0, 0, 1],
+            1,
+            [255, 255, 255, 1]
+        ],
+        ["color", 0, 0, 0, 0]
     ],
-    [0, 0, 0, 0]
-  ]
+    "jsonform": {
+        "type": "object",
+        "title": "Data configuration",
+        "properties": {
+            "vminmax": {
+                "title": "Sigma0 value",
+                "type": "object",
+                "properties": {
+                    "vmin": {
+                        "type": "number",
+                        "minimum": 0,
+                        "format": "range",
+                        "default": 0
+                    },
+                    "vmax": {
+                        "type": "number",
+                        "maximum": 8,
+                        "format": "range",
+                        "default": 4
+                    }
+                },
+                "format": "minmax"
+            }
+        }
+    }
 }

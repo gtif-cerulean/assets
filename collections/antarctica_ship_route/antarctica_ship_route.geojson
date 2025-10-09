@@ -1,0 +1,31 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Rothera Research Station"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -68.125028,
+                    -67.568783
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Middle of the Weddell Sea"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -41.0,
+                    -71.0
+                ]
+            }
+        }
+    ]
+}

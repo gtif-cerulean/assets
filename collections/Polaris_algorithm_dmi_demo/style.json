@@ -8,8 +8,7 @@
               "#66bc76",
               "#fcfb01",
               "#e36c09",
-              "#bc0106",
-              "#fcfb01"
+              "#bc0106"
             ],
             "domain": [
               "RIO > 20",
@@ -17,8 +16,7 @@
               ">= 0 RIO < 10",
               ">= -10 RIO < 0",
               ">= -20 RIO < -10",
-              "RIO < -20",
-              "<= -10 RIO < 0"
+              "RIO < -20"
             ],
             "scaleType": "categorical",
             "markType": "circle",

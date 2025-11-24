@@ -3,7 +3,6 @@
   "fill-color": "#ff000080",
   "stroke-width": 2,
   "tooltip": [
-    { "id": "WEA", "title": "Name" },
-    { "id": "Area_km2", "title": "Area km2", "decimals": 0 }
+    { "id": "WEA", "title": "Name" }
   ]
 }

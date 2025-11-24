@@ -1,8 +1,5 @@
 {
   "stroke-color": "#000000",
   "fill-color": "#ff000080",
-  "stroke-width": 2,
-  "tooltip": [
-    { "id": "WEA", "title": "Name" }
-  ]
+  "stroke-width": 3
 }

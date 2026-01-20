@@ -17,13 +17,13 @@
             "title": "Select start date",
             "type": "date",
             "format": "date",
-            "default": "2024-09-01"
+            "default": "2025-09-01"
         },
         "date_end": {
             "title": "Select end date",
             "type": "date",
             "format": "date",
-            "default": "2024-12-20"
+            "default": "2025-12-20"
         },
         "depth": {
             "type": "number",

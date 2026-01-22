@@ -6,7 +6,14 @@
         "autoStartSelection": false,
         "drawtools": {
           "for": "eox-map#main",
-          "projection": "EPSG:4326"
+          "projection": "EPSG:4326",
+          "featureStyles": {
+                "layer": {
+                    "circle-radius": 10,
+                    "circle-stroke-width": 2,
+                    "circle-stroke-color": "#00ff00"
+                }
+            }
         }
       },
       "title": "Draw one Start and one End point",

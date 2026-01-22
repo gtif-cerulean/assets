@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "start": {
+          "title": "Start point",
+          "type": "array",
+          "format": "point"
+        },
+        "end": {
+          "title": "End point",
+          "type": "array",
+          "format": "point"
+        }
+    }
+}

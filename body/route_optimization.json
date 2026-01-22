@@ -1,8 +1,8 @@
 {
     "inputs": {
-        "start_lon": "{{start.0}}",
-        "start_lat": "{{start.1}}",
-        "end_lon": "{{end.0}}",
-        "end_lat": "{{end.1}}"
+        "start_lon": "{{points.0.0}}",
+        "start_lat": "{{points.0.1}}",
+        "end_lon": "{{points.1.0}}",
+        "end_lat": "{{points.1.1}}"
     }
 }

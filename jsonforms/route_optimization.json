@@ -1,15 +1,29 @@
 {
-    "type": "object",
-    "properties": {
-        "start": {
-          "title": "Start point",
-          "type": "array",
-          "format": "point"
-        },
-        "end": {
-          "title": "End point",
-          "type": "array",
-          "format": "point"
+  "type": "object",
+  "properties": {
+    "start": {
+      "options": {
+        "autoStartSelection": false,
+        "drawtools": {
+          "for": "eox-map#main",
+          "projection": "EPSG:4326"
         }
+      },
+      "title": "Start point",
+      "type": "array",
+      "format": "point"
+    },
+    "end": {
+      "options": {
+        "autoStartSelection": false,
+        "drawtools": {
+          "for": "eox-map#main",
+          "projection": "EPSG:4326"
+        }
+      },
+      "title": "End point",
+      "type": "array",
+      "format": "point"
     }
+  }
 }

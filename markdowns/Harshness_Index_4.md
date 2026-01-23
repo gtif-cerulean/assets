@@ -2,12 +2,12 @@ The Harshness Index generates harshness maps based on wave height, sea ice conce
 
 A harshness/attractiveness index is a single parameter which combines various data to provide an overall measure of the environmental harshness or attractiveness of a region. In general, the index is given by the following formula:
 
-![](Harshness_EQ1.png)
+![](https://github.com/gtif-cerulean/assets/blob/main/markdowns/Harshness_EQ1.png?raw=true)
 
 Where:
 
 -   Vi is the ith variable
--   Wi is the weight assigned to the nth variable. ![](Harshness_EQ2.png)
+-   Wi is the weight assigned to the nth variable. ![](https://github.com/gtif-cerulean/assets/blob/main/markdowns/Harshness_EQ2.png?raw=true)
 -   Ni is the normalization factor for the ith variable – typically the largest expected value of Vi.
 
 The default harshness index used in the CIF is the Fleming-Drover Harshness Index which takes into account:
@@ -36,3 +36,4 @@ The Fleming-Drover Harshness Index is given by the formula when:
 -   The iceberg density is within the given range
 
 The harshness/attractiveness index can be customized to use other variables and equations.
+

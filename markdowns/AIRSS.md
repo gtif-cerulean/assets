@@ -1,0 +1,8 @@
+The Canadian Arctic Ice Regime Shipping System (AIRSS) is intended to minimize the risk of pollution in Arctic waters due to damage of vessels by ice; to emphasize the responsibility of the shipowner and master for safety; and to provide a flexible framework for decision-making. It applies to Canadian Arctic Class (CAC) and Type (Baltic Class) ships, and requires accurate information for voyage planning, timely ice-charts, and consistent observation of ice conditions.
+
+The AIRSS is a four-step process:
+
+-   First, the user characterizes the ice regime. The ice regime is a region of ice with more or less consistent ice conditions. The ice regime takes into account several important factors of the ice: its concentration, thickness, age, state of decay, and roughness.
+-   Second, the vessel Class dependant Ice Multipliers are obtained. Because different vessels have different capabilities in ice-covered waters, each vessel is assessed and assigned to a Vessel Class. This rating reflects the strength, displacement, and power of the vessel. The relative risk damage to a vessel by different types of ice is taken into account using “weighting” factors called Ice Multipliers.
+-   Third, the information about the ice regime and the Ice Multipliers are combined to determine the Ice Numeral. (The Ice Numeral is a simple calculation that relates the strength of the ship to the danger presented by different ice regimes.)
+-   Fourth, the Ice Numeral is used to decide whether the vessel should proceed or take an alternative route. Ice regimes that are not likely to be hazardous have zero or ‘positive’ Ice Numerals; whereas those regimes that could be dangerous have ‘negative’ Ice Numerals.

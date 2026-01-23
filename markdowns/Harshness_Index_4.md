@@ -2,16 +2,12 @@ The Harshness Index generates harshness maps based on wave height, sea ice conce
 
 A harshness/attractiveness index is a single parameter which combines various data to provide an overall measure of the environmental harshness or attractiveness of a region. In general, the index is given by the following formula:
 
-$$
-H I = W_{1} \times \frac{V_{1}}{N_{1}} + W_{2} \times \frac{V_{2}}{N_{2}} + \cdots + W_{n} \times \frac{V_{n}}{N_{n}}
-$$
-
-![](media/fb6c585bb668debf19a0b2ab75f1838b.emf)
+![](Harshness_EQ1.png)
 
 Where:
 
 -   Vi is the ith variable
--   Wi is the weight assigned to the nth variable. $$\sum_{i}^{n} {W_{i} = 1}$$ ![](media/a9b4f8c26d3b1e1110caff19d1cf7788.emf)
+-   Wi is the weight assigned to the nth variable. ![](Harshness_EQ2.png)
 -   Ni is the normalization factor for the ith variable – typically the largest expected value of Vi.
 
 The default harshness index used in the CIF is the Fleming-Drover Harshness Index which takes into account:

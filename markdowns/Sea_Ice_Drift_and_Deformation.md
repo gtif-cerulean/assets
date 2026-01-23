@@ -1,0 +1,10 @@
+**Sea Ice Drift**
+
+The Nansat sea ice drift algorithm’s initial step is based on feature tracking (FT) but includes an additional pattern matching (PM) step that generates vectors over a regular grid.
+
+1.  Feature Tracking (FT) – in this step, features are extracted from each image in the pair, using the OpenCV ORB algorithm. Features are then matched between the two images where possible to measure the motion of the ice over the time period spanned by the images. Matching features are connected by vectors representing the ice drift, and this forms the output of the FT step.
+2.  Pattern Matching (PM) – in this step, the FT output is used as a “first guess” and interpolated/extrapolated as necessary to cover the entire overlapping area between the two images in the pair. A regular grid of latitude/longitude coordinates is defined on the overlapping region, and the first guess from FT is used as a starting point for matching a template from the first image to the best pattern match in the vicinity of the first guess on the second image. This allows for calculation of ice motion across the entire overlap region, filling in the spaces between and around the FT vectors where no matching features were found.
+
+**Sea Ice Deformation**
+
+The gridded ice tracking vectors are used to estimate sea ice deformation. Using the Nansat Ice Tracking algorithm (described above), ice motion vectors are defined for every grid point. The next step is to create a mesh of quadrilaterals based on the ice motion at each grid point. Initially the quadrilaterals are rectangular, however due to the ice motion and corresponding deformation, each of the four vertices will be displaced at the time of the second image. The deformation mesh corresponds to the displaced grid points, producing a variety of quadrilateral shapes resulting from the ice motion. This may be interpreted as a Lagrangian description of the sea ice deformation. The deformation is calculated for each polygon constituting the deformed mesh. The deformation values are calculated for each quadrilateral according to the equations given for divergence, shear, and total deformation.

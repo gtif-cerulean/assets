@@ -5,7 +5,7 @@
     "data": {
         "name": "process_eox"
     },
-    "transform": [{"flatten": ["VHM0"], "as": ["data"]}],
+    "transform": [{"flatten": ["VHM0"], "as": ["data"]}, {"filter": "isValid(datum.data.mean)"}],
     "encoding": {"x": {"field": "data.datetime", "type": "temporal", "title": "date"}},
     "layer": [
       {

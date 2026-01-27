@@ -5,7 +5,7 @@
     "data": {
         "name": "process_eox"
     },
-    "transform": [{"flatten": ["wind_speed"], "as": ["data"]}],
+    "transform": [{"flatten": ["wind_speed"], "as": ["data"]},{"filter": "isValid(datum.data.mean)"}],
     "encoding": {"x": {"field": "data.datetime", "type": "temporal", "title": "date"}},
     "layer": [
       {

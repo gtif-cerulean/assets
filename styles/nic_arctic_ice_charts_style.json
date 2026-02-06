@@ -1,22 +1,153 @@
 {
-  "tooltip": [{"id": "CT", "title": "CT"}],
+  "legend": [
+    {
+      "title": "Total Sea Ice Concentration",
+      "range": ["#96C8FF", "#8CFFA0", "#FFFF00", "#FF7D06", "#FF0000"],
+      "domain": [
+        "Open Water",
+        "Very open drift ice",
+        "Open Drift Ice",
+        "Close Drift Ice",
+        "Very Close Drift Ice"
+      ],
+      "scaleType": "categorical",
+      "markType": "circle",
+      "boundTo": { "key": "type_of_visualisation", "value": "sic" }
+    },
+    {
+      "title": "Stage of Development",
+      "range": [
+        "rgb(0,100,255)",
+        "rgb(240,210,250)",
+        "rgb(135,60,215)",
+        "rgb(220,80,235)",
+        "rgb(255,255,0)",
+        "rgb(155,210,0)",
+        "rgb(0,200,20)",
+        "rgb(0,120,0)",
+        "rgb(180,100,50)",
+        "rgb(255,120,10)",
+        "rgb(200,0,0)",
+        "rgb(255,255,255)"
+      ],
+      "domain": [
+        "Ice Free",
+        "New Ice (incl. Nilas, Young Ice)",
+        "Grey Ice",
+        "Grey-White Ice",
+        "First-Year Ice",
+        "Thin First-Year Ice",
+        "Medium First-Year Ice",
+        "Thick First-Year Ice",
+        "Old Ice",
+        "Second-Year Ice",
+        "Multi-Year Ice",
+        "Ice of Undefined Stage of Development"
+      ],
+      "scaleType": "categorical",
+      "markType": "circle",
+      "boundTo": {
+        "key": "type_of_visualisation",
+        "value": "sod"
+      }
+    }
+  ],
+
   "fill-color": [
     "case",
-    ["!", ["get", "CT"]],
-    [0, 0, 0, 0],
-    ["<=", ["get", "CT"], 5],
-    [0, 0, 0, 0],
-    ["<=", ["get", "CT"], 10],
-    [150, 200, 255, 1],
-    ["<=", ["get", "CT"], 40],
-    [140, 255, 159, 1],
-    ["<=", ["get", "CT"], 70],
-    [255, 255, 0, 1],
-    ["<=", ["get", "CT"], 90],
-    [255, 125, 7, 1],
-    ["<=", ["get", "CT"], 100],
-    [255, 0, 0, 1],
+    ["==", ["var", "type_of_visualisation"], "sic"],
+    [
+      "case",
+      ["!", ["get", "CT"]],
+      [0, 0, 0, 0],
+      ["<=", ["get", "CT"], 5],
+      [0, 0, 0, 0],
+      ["<=", ["get", "CT"], 10],
+      [150, 200, 255, 1],
+      ["<=", ["get", "CT"], 40],
+      [140, 255, 159, 1],
+      ["<=", ["get", "CT"], 70],
+      [255, 255, 0, 1],
+      ["<=", ["get", "CT"], 90],
+      [255, 125, 7, 1],
+      ["<=", ["get", "CT"], 100],
+      [255, 0, 0, 1],
+      [0, 0, 255, 1]
+    ],
+    ["==", ["var", "type_of_visualisation"], "sod"],
+    [
+      "case",
+      ["!", ["get", "SA"]],
+      [0, 0, 0, 0],
+      ["==", ["get", "SA"], "0"],
+      [0, 100, 255, 1],
+      ["==", ["get", "SA"], "80"],
+      [255, 255, 255, 1],
+      ["==", ["get", "SA"], "81"],
+      [240, 210, 250, 1],
+      ["==", ["get", "SA"], "82"],
+      [240, 210, 250, 1],
+      ["==", ["get", "SA"], "83"],
+      [240, 210, 250, 1],
+      ["==", ["get", "SA"], "84"],
+      [135, 60, 215, 1],
+      ["==", ["get", "SA"], "85"],
+      [220, 80, 235, 1],
+      ["==", ["get", "SA"], "86"],
+      [255, 255, 0, 1],
+      ["==", ["get", "SA"], "87"],
+      [155, 210, 0, 1],
+      ["==", ["get", "SA"], "88"],
+      [155, 210, 0, 1],
+      ["==", ["get", "SA"], "89"],
+      [155, 210, 0, 1],
+      ["==", ["get", "SA"], "91"],
+      [0, 200, 20, 1],
+      ["==", ["get", "SA"], "93"],
+      [0, 120, 0, 1],
+      ["==", ["get", "SA"], "95"],
+      [180, 100, 50, 1],
+      ["==", ["get", "SA"], "96"],
+      [255, 120, 10, 1],
+      ["==", ["get", "SA"], "97"],
+      [200, 0, 0, 1],
+      ["==", ["get", "SA"], "98"],
+      [255, 255, 255, 1],
+      ["==", ["get", "SA"], "99"],
+      [255, 255, 255, 1],
+      [0, 0, 0, 0]
+    ],
     [0, 0, 255, 1]
+  ],
+  "jsonform": {
+    "type": "object",
+    "title": "Data configuration",
+    "properties": {
+      "type_of_visualisation": {
+        "title": "Type of Visualisation",
+        "type": "string",
+        "enum": ["sic", "sod"],
+        "options": {
+          "enum_titles": [
+            "Sea Ice Concentration",
+            "Stage of Development"
+          ]
+        },
+        "default": "sic"
+      }
+    }
+  },
+  "variables": {
+    "type_of_visualisation": "sic"
+  },
+  "tooltip": [
+    { "id": "CT", "title": "Total Concentration", "decimals": 0 },
+    { "id": "CA", "title": "Partial Concentration CA", "decimals": 0 },
+    { "id": "CB", "title": "Partial Concentration CB", "decimals": 0 },
+    { "id": "SA", "title": "Stage of development SA", "decimals": 0 },
+    { "id": "SB", "title": "Stage of development SB", "decimals": 0 },
+    { "id": "FA", "title": "Form of Ice FA", "decimals": 0 },
+    { "id": "FB", "title": "Form of Ice FB", "decimals": 0 }
   ],
   "stroke-color": "black",
   "stroke-width": 1

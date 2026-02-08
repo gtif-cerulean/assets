@@ -1,0 +1,12 @@
+{
+    "inputs": {
+        "lllon": "{{bbox.0}}",
+        "lllat": "{{bbox.1}}",
+        "urlon": "{{bbox.2}}",
+        "urlat": "{{bbox.3}}",
+        "reference_date": "{{reference_date}}",
+        "search_days_before": "{{search_days_before}}",
+        "search_days_after": "{{search_days_after}}",
+        "max_cloud_cover": "{{max_cloud_cover}}"
+    }
+}

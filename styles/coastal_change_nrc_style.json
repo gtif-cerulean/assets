@@ -13,16 +13,10 @@
   "properties": {}
   },
   "legend": {
-  "title": "Coastal change detection",
-  "items": [
-    {
-      "label": "Water to Land",
-      "color": [0, 200, 255, 0.8]
-    },
-    {
-      "label": "Land to Water",
-      "color": [255, 220, 0, 0.8]
-    }
-  ]
-}
+    "title": "Coastal change detection",
+    "range": ["rgba(0, 200, 255, 0.8)", "rgba(255, 220, 0, 0.8)"],
+    "domain": ["Water to Land", "Land to Water"],
+    "scaleType": "categorical",
+    "markType": "circle"
+  }
 }

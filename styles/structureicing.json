@@ -15,7 +15,7 @@
     },
     "color": [
         "case",
-        [">", ["band", 1], 0],
+        [">=", ["band", 1], 0],
         [
             "interpolate",
             ["linear"],

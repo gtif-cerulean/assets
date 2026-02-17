@@ -8,7 +8,7 @@
   ],
   "stroke-color": [0, 0, 0, 0.7],
     "legend": {
-    "title": "Surface change type",
+    "title": "Coastal change detection",
     "items": [
       {
         "label": "Water to Land",

@@ -5,7 +5,7 @@
       "data_dir": "/data/",
       "wave_height_thresh": "{{wave_height}}",
       "sea_ice_concentration_thresh": "{{sea_ice_concentration}}",
-      "formula": "{{sea_ice_concentration_weight}}*S/350 + {{wave_height_weight}}*W/110 + {{ice_berg_weight}}*(I>0.01)*(12 + 2*log10((I/10000)+1e-40))",
+      "formula": "{{sea_ice_concentration_weight}}*S/350 + {{wave_height_weight}}*W/110",
       "x_resolution": "0.08",
       "y_resolution": "0.08",
       "lon_min": "{{bbox.0}}",

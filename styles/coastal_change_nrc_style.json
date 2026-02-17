@@ -6,5 +6,18 @@
     "land_to_water", [255, 220, 0, 0.8],
     [0, 0, 0, 0]
   ],
-  "stroke-color": [0, 0, 0, 0.7]
+  "stroke-color": [0, 0, 0, 0.7],
+    "legend": {
+    "title": "Surface change type",
+    "items": [
+      {
+        "label": "Water → Land",
+        "color": [0, 200, 255, 0.8]
+      },
+      {
+        "label": "Land → Water",
+        "color": [255, 220, 0, 0.8]
+      }
+    ]
+  }
 }

@@ -45,7 +45,7 @@
                     },
                     "vmax": {
                         "type": "number",
-                        "maximum": 5,
+                        "maximum": 0.075,
                         "format": "range",
                         "default": 1
                     }
